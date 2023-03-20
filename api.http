@@ -1,0 +1,2 @@
+###
+GET http://api.weatherapi.com/v1/forecast.json?key={{$dotenv WEATHER_API_KEY}}&q=Berlin&days=1&aqi=no&alerts=no
