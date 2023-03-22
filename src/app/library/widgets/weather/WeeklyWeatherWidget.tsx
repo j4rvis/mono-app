@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { getData } from "./WeatherFetcher";
+import { getWeatherForecast } from "../../fetcher/getWeatherForecast";
 
 const WEEKDAY_FORMAT = new Intl.DateTimeFormat('de-DE', {
   weekday: "short"
 });
 
 export default async function WeeklyWeatherWidget({ className }: { className?: string }) {
-  const data: WeatherApiResponse = await getData();
+  const data: WeatherApiResponse = await getWeatherForecast();
   return (
-    <div className={`${className} flex flex-col justify-evenly h-full`}>
+    <div className={`${className} flex flex-col justify-start gap-3 h-full`}>
       {data.forecast.forecastday.map((forecastday) => {
         return (
           <div key={forecastday.date_epoch} className="flex flex-row justify-around w-full">

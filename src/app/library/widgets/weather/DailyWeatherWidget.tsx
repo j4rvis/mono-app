@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getData } from "./WeatherFetcher";
+import { getWeatherForecast } from "../../fetcher/getWeatherForecast";
 
 const TIME_FORMAT = new Intl.DateTimeFormat('de-DE', {
   hour: "numeric",
@@ -7,7 +7,7 @@ const TIME_FORMAT = new Intl.DateTimeFormat('de-DE', {
 });
 
 export default async function DailyWeatherWidget({ className }: { className?: string }) {
-  const data: WeatherApiResponse = await getData();
+  const data: WeatherApiResponse = await getWeatherForecast();
   return (
     <div className={`${className} flex`}>
       {data.forecast.forecastday[0].hour.map((hour, i) => {

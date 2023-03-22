@@ -1,3 +1,0 @@
-
-###
-GET http://api.weatherapi.com/v1/forecast.json?key={{weather_api_key}}&q=Berlin&days=7&aqi=no&alerts=no
