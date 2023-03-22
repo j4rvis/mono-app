@@ -1,2 +1,3 @@
+
 ###
-GET http://api.weatherapi.com/v1/forecast.json?key={{$dotenv WEATHER_API_KEY}}&q=Berlin&days=1&aqi=no&alerts=no
+GET http://api.weatherapi.com/v1/forecast.json?key={{weather_api_key}}&q=Berlin&days=7&aqi=no&alerts=no

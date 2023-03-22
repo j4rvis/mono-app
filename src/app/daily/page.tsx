@@ -1,12 +1,17 @@
 import Sheet from "@/app/library/components/Sheet";
 import SheetElement from "@/app/library/components/SheetElement";
-import CalendarWidget from "../library/widgets/CalendarWidget";
+import CalendarWidget from "../library/widgets/calendar/CalendarWidget";
 import DateWidget from "../library/widgets/DateWidget";
 import TodoistWidget from "../library/widgets/TodoistWidget";
-import DailyWeatherWidget from "../library/widgets/DailyWeatherWidget";
-import WeeklyWeatherWidget from "../library/widgets/WeeklyWeatherWidget";
-export default function Home() {
+import DailyWeatherWidget from "../library/widgets/weather/DailyWeatherWidget";
+import WeeklyWeatherWidget from "../library/widgets/weather/WeeklyWeatherWidget";
+import { headers } from 'next/headers';
 
+export const revalidate = 60;
+
+export default function Home() {
+  // Force SSR
+  const headersList = headers();
   return (
     <div className="bg-slate-200">
       <Sheet className="grid-cols-6 grid-rows-6">

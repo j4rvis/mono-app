@@ -14,3 +14,7 @@ export default function DateWidget() {
     </div>
   )
 }
+
+export async function getServerSideProps() {
+
+}

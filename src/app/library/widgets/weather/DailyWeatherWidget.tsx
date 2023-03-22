@@ -1,20 +1,11 @@
 import Image from "next/image";
+import { getData } from "./WeatherFetcher";
 
-const API_KEY=process.env.WEATHER_API_KEY;
 const TIME_FORMAT = new Intl.DateTimeFormat('de-DE', {
   hour: "numeric",
   minute: "numeric"
 });
 
-async function getData(): Promise<WeatherApiResponse> {
-  const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=Berlin&days=1&aqi=no&alerts=no`);
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
 export default async function DailyWeatherWidget({ className }: { className?: string }) {
   const data: WeatherApiResponse = await getData();
   return (
